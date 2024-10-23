@@ -1,4 +1,4 @@
-# learning-style<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he">
 <head>
     <meta charset="UTF-8">
@@ -80,9 +80,13 @@
     <script>
         function nextQuestion(currentQuestion) {
             // הסתר את השאלה הנוכחית
+            document.getElementById('question' + currentQuestion).classList.remove('active');
             document.getElementById('question' + currentQuestion).style.display = 'none';
+
             // הצג את השאלה הבאה
-            document.getElementById('question' + (currentQuestion + 1)).style.display = 'block';
+            const nextQuestion = document.getElementById('question' + (currentQuestion + 1));
+            nextQuestion.classList.add('active');
+            nextQuestion.style.display = 'block';
         }
 
         function showResult(event) {
@@ -136,9 +140,4 @@
                         result += "פעילה, ";
                     } else if (engagement.value === "passive") {
                         result += "פאסיבית, ";
-                    } else if (engagement.value === "high-interest") {
-                        result += "בעלת עניין גבוה, ";
-                    } else if (engagement.value === "low-interest") {
-                        result += "בעלת עניין נמוך, ";
-                    }
-               
+                    } else
